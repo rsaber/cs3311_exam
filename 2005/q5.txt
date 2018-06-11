@@ -1,0 +1,23 @@
+
+
+
+
+
+create function BeforeAddNewFlight returns trigger
+as $$
+begin
+    update Flights
+end
+$$ as language plgpsql;
+
+create function AfterAddNewBooking returns trigger
+as $$
+
+$$ as language plgpsql;
+
+
+create function AfterDeleteBooking returns trigger
+as $$
+
+$$ as language plgpsql;
+

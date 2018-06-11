@@ -1,0 +1,17 @@
+
+
+create function seatsAvail(flig integer) returns integer as
+$$
+declare
+    _total := NULL
+    _bookings := NULL
+begin
+    select nseats into _total from Flights f left join Planes p on f.plane = p.id where f.id = flid;
+    select count(*) into _bookings from Bookings b where b.flight = flid;
+
+    if (_total is NULL) then
+        return NULL;
+    end if
+    return _total - _bookings;
+end
+$$ as language plglsql

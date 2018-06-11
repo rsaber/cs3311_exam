@@ -1,0 +1,15 @@
+
+a) The script prints out every player and the goals they scored in any of their matches
+b) 501
+c) 
+
+<?
+
+$q = "select p.id, p.name, count(g.id) from players p left join goals g on g.scoredBy = p.id group by 1,2";
+$r = dbQuery($db, mkSQL($q));
+while($t = dbNext($r)){
+    list($id, $name, $count) = $t;
+    printf("%s %d\n", $name, $count);
+}
+
+?>
